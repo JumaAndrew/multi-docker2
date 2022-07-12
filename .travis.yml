@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t jumaandrew/react-test -f ./client/Dockerfile.dev
+  - docker build -t jumaandrew/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true jumaandrew/react-test npm test
@@ -21,6 +21,6 @@ after_success:
   - docker push jumaandrew/multi-nginx
   - docker push jumaandrew/multi-server
   - docker push jumaandrew/multi-worker
-  
-   
+
+
 
