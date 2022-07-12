@@ -17,10 +17,10 @@ after_success:
 #login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
 
-  - docker push jumaandrew/multi-client
-  - docker push jumaandrew/multi-nginx
-  - docker push jumaandrew/multi-server
-  - docker push jumaandrew/multi-worker
+  - docker push jumaandrew/multi-client2
+  - docker push jumaandrew/multi-nginx2
+  - docker push jumaandrew/multi-server2
+  - docker push jumaandrew/multi-worker2
 
 
 
