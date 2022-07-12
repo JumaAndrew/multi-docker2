@@ -9,18 +9,18 @@ script:
   - docker run -e CI=true jumaandrew/react-test npm test
 
 after_success:
-  - docker build -t jumaandrew/multi-client ./client
-  - docker build -t jumaandrew/multi-server ./server
-  - docker build -t jumaandrew/multi-nginx ./nginx
-  - docker build -t jumaandrew/multi-worker ./worker
+  - docker build -t jumaandrew/multi-client2 ./client
+  - docker build -t jumaandrew/multi-server2 ./server
+  - docker build -t jumaandrew/multi-nginx2 ./nginx
+  - docker build -t jumaandrew/multi-worker2 ./worker
 
 #login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
 
-  - docker push jumaandrew/multi-client
-  - docker push jumaandrew/multi-nginx
-  - docker push jumaandrew/multi-server
-  - docker push jumaandrew/multi-worker
+  - docker push jumaandrew/multi-client2
+  - docker push jumaandrew/multi-nginx2
+  - docker push jumaandrew/multi-server2
+  - docker push jumaandrew/multi-worker2
 
 
 
