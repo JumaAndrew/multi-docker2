@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jumaandrew/react-test -f ./client/Dockerfile.dev
+
+script:
+  - docker run -e CI=true jumaandrew/react-test npm test
+
+after_success:
+  - docker build -t jumaandrew/multi-client ./client
+  - docker build -t jumaandrew/multi-server ./server
+  - docker build -t jumaandrew/multi-nginx ./nginx
+  - docker build -t jumaandrew/multi-worker ./worker
+
